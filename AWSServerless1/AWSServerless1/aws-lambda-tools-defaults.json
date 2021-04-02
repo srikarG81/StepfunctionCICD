@@ -9,10 +9,10 @@
   "region": "eu-west-2",
   "configuration": "Release",
   "framework": "netcoreapp3.1",
-  "s3-prefix": "AWSServerless1/",
+  "s3-prefix": "awsserverless1cicd/",
   "template": "serverless.template",
   "template-parameters": "",
   "template-substitutions": "$.Resources.StateMachine.Properties.DefinitionString.Fn::Sub=state-machine.json",
-  "s3-bucket": "AWSServerless1cicd",
-  "stack-name": "AWSServerless1cicd"
+  "s3-bucket": "awsserverless1cicd",
+  "stack-name": "awsserverless1cicd"
 }
