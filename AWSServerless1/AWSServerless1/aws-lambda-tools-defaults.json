@@ -13,6 +13,6 @@
   "template": "serverless.template",
   "template-parameters": "",
   "template-substitutions": "$.Resources.StateMachine.Properties.DefinitionString.Fn::Sub=state-machine.json",
-  "s3-bucket": "",
-  "stack-name": ""
+  "s3-bucket": "AWSServerless1cicd",
+  "stack-name": "AWSServerless1cicd"
 }
