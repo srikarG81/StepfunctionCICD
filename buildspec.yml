@@ -20,8 +20,8 @@ phases:
       - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY_PARAM
       - echo $CODEBUILD_SRC_DIR
       - dir
-      - dotnet clean  AWSServerless1.sln
-      - dotnet restore AWSServerless1.sln
+      - dotnet clean  ./AWSServerless1/AWSServerless1.sln
+      - dotnet restore ./AWSServerless1/AWSServerless1.sln
       
   build:
     commands:
