@@ -20,5 +20,7 @@
     "tracing-mode"         : "Active",
     "environment-variables" : "",
     "image-tag"             : "",
-    "function-description"  : ""
+    "function-description"  : "",
+	"s3-bucket": "awsserverless1cicd",
+    "stack-name": "awsserverless1cicd"
 }
