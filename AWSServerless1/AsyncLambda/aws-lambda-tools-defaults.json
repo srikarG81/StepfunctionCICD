@@ -21,6 +21,7 @@
     "environment-variables" : "",
     "image-tag"             : "",
     "function-description"  : "",
+    "s3-prefix": "awsserverless1cicd/",
 	"s3-bucket": "awsserverless1cicd",
     "stack-name": "awsserverless1cicd"
 }
