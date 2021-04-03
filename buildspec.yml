@@ -22,6 +22,8 @@ phases:
       - dir
       - dotnet clean  ./AWSServerless1/AWSServerless1.sln
       - dotnet restore ./AWSServerless1/AWSServerless1.sln
+      - dotnet clean  ./AWSServerless1/StepfunctionAsync.sln
+      - dotnet restore ./AWSServerless1/StepfunctionAsync.sln
       - cd AWSServerless1
       
   build:
