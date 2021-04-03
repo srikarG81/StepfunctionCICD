@@ -34,3 +34,5 @@ phases:
       - dotnet tool update -g Amazon.Lambda.Tools
       - cd AWSServerless1
       - dotnet lambda deploy-serverless
+      - OrderOrchestration
+      - dotnet lambda deploy-serverless
