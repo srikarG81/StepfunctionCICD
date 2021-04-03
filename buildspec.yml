@@ -35,5 +35,6 @@ phases:
       - cd AWSServerless1
       - dotnet lambda deploy-serverless
       - cd ..
+      - dir
       - OrderOrchestration
       - dotnet lambda deploy-serverless
