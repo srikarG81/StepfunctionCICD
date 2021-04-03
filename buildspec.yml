@@ -36,5 +36,5 @@ phases:
       - dotnet lambda deploy-serverless
       - cd ..
       - dir
-      - OrderOrchestration
+      - cd OrderOrchestration
       - dotnet lambda deploy-serverless
