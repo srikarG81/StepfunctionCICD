@@ -1,0 +1,96 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: An AWS Serverless Application.
+Resources:
+  WaitForApprovalTask:
+    Type: AWS::Lambda::Function
+    Properties:
+      Handler: OrderOrchestration::OrderOrchestration.StepFunctionTasks::WaitForApprovalTask
+      Role:
+        Fn::GetAtt:
+        - LambdaRole
+        - Arn
+      Runtime: dotnetcore3.1
+      MemorySize: 256
+      Timeout: 30
+      Code: WaitForApprovalTask
+  ValidateCostTask:
+    Type: AWS::Lambda::Function
+    Properties:
+      Handler: OrderOrchestration::OrderOrchestration.StepFunctionTasks::ValidateCostTask
+      Role:
+        Fn::GetAtt:
+        - LambdaRole
+        - Arn
+      Runtime: dotnetcore3.1
+      MemorySize: 256
+      Timeout: 30
+      Code: ValidateCostTask
+  ValidateOrderTask:
+    Type: AWS::Lambda::Function
+    Properties:
+      Handler: OrderOrchestration::OrderOrchestration.StepFunctionTasks::ValidateOrderTask
+      Role:
+        Fn::GetAtt:
+        - LambdaRole
+        - Arn
+      Runtime: dotnetcore3.1
+      MemorySize: 256
+      Timeout: 30
+      Code: ValidateOrderTask
+  ProcessOrderTask:
+    Type: AWS::Lambda::Function
+    Properties:
+      Handler: OrderOrchestration::OrderOrchestration.StepFunctionTasks::ProcessOrderTask
+      Role:
+        Fn::GetAtt:
+        - LambdaRole
+        - Arn
+      Runtime: dotnetcore3.1
+      MemorySize: 256
+      Timeout: 30
+      Code: ProcessOrderTask
+  StateMachine:
+    Type: AWS::StepFunctions::StateMachine
+    Properties:
+      RoleArn:
+        Fn::GetAtt:
+        - StateMachineRole
+        - Arn
+      DefinitionString:
+        Fn::Sub: ''
+  LambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+        - Action:
+          - sts:AssumeRole
+          Effect: Allow
+          Principal:
+            Service:
+            - lambda.amazonaws.com
+      ManagedPolicyArns:
+      - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+  StateMachineRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+        - Effect: Allow
+          Principal:
+            Service:
+              Fn::Sub: states.${AWS::Region}.amazonaws.com
+          Action: sts:AssumeRole
+      Policies:
+      - PolicyName: StepFunctionLambdaInvoke
+        PolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+          - Effect: Allow
+            Action:
+            - lambda:InvokeFunction
+            Resource: '*'
+Outputs: {}
