@@ -20,11 +20,10 @@ phases:
       - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY_PARAM
       - echo $CODEBUILD_SRC_DIR
       - dir
-      - dotnet clean  ./AWSServerless1/AWSServerless1.sln
-      - dotnet restore ./AWSServerless1/AWSServerless1.sln
       - dotnet clean  ./AWSServerless1/StepfunctionAsync.sln
       - dotnet restore ./AWSServerless1/StepfunctionAsync.sln
-      - cd AWSServerless1
+      - dotnet clean  ./AWSServerless1/AsyncLambda.sln
+      - dotnet restore ./AWSServerless1/AsyncLambda.sln
       
   build:
     commands:
@@ -32,9 +31,10 @@ phases:
       - dotnet new -i Amazon.Lambda.Templates::*
       - dotnet tool install -g Amazon.Lambda.Tools
       - dotnet tool update -g Amazon.Lambda.Tools
-      - cd AWSServerless1
+      - dir
+      - cd OrderOrchestration
       - dotnet lambda deploy-serverless
       - cd ..
       - dir
-      - cd OrderOrchestration
+      - cd AsyncLambda
       - dotnet lambda deploy-serverless
