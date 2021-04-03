@@ -32,8 +32,8 @@ phases:
       - dotnet new -i Amazon.Lambda.Templates::*
       - dotnet tool install -g Amazon.Lambda.Tools
       - dotnet tool update -g Amazon.Lambda.Tools
-      - cd ..
       - cd AWSServerless1
       - dotnet lambda deploy-serverless
+      - cd ..
       - OrderOrchestration
       - dotnet lambda deploy-serverless
