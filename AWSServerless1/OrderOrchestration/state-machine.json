@@ -6,7 +6,14 @@
       "Type": "Task",
       "Resource": "${ValidateOrderTask.Arn}",
       "Parameters": {
-        "Qualifier": "BLUE"
+        "Qualifier": "BLUE",
+        "FunctionName": "${ValidateOrderTask.Arn}",
+        "Payload": {
+          "OrderID.$": "$.OrderID",
+          "Cost.$": "$.Cost",
+          "OrderItems.$": "$.OrderItems",
+          "IsApprovalRequired.$": "$.IsApprovalRequired"
+        }
       },
       "Next": "Is the order valid?"
     },
