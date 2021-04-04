@@ -34,25 +34,14 @@
       "Description": "v1"
       }
       },
-       "newversionv3":{
-    "Type": "AWS::Lambda::Version",
-    "Properties":{
-      "FunctionName": {"Ref": "ValidateOrderTask"},
-      "Description": "v2"
-      }
-      },
+     
   "alias":{
     "Type": "AWS::Lambda::Alias",
     "Properties":{
       "FunctionName": {"Ref": "ValidateOrderTask"},
       "FunctionVersion":{ "Fn::GetAtt": ["newversion","Version"]},
-      "Name": "BLUE",
-      "RoutingConfig":{
-        "AdditionalVersionWeights":[{
-           "FunctionVersion": {"Fn::GetAtt": ["newversionv3","Version"]},
-            "FunctionWeight": "0.1"}]
-            
-      }
+      "Name": "BLUE"
+  
       }
       },
 
