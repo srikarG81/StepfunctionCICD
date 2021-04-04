@@ -4,12 +4,7 @@
   "States": {
     "Validate Order": {
       "Type": "Task",
-      "Resource": "${ValidateOrderTask.Arn}",
-      "Parameters": {
-        "FunctionName": "${ValidateOrderTask.Arn}",
-        "Payload.$":  "$",
-        "Qualifier": "BLUE"
-      },
+      "Resource": "${ValidateOrderTask.Arn-${opt:alias}}",
       "Next": "Is the order valid?"
     },
 
