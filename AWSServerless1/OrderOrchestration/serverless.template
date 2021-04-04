@@ -38,7 +38,7 @@
     "Type": "AWS::Lambda::Version",
     "Properties":{
       "FunctionName": {"Ref": "WaitForApprovalTask"},
-      "Description": "v2"
+      "Description": "v3"
       }
       },
   "alias":{
