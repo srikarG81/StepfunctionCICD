@@ -60,6 +60,8 @@ namespace OrderOrchestration
         public Order ValidateOrderTask(Order order, ILambdaContext context)
         {
             var isValid = false;
+            if (order == null)
+                return order;
             order.IsOrderValid = isValid = order.OrderItems.Count > 0 && order.Cost > 0;
             if (isValid)
             {
