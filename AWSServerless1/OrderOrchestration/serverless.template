@@ -30,14 +30,14 @@
  "newversion":{
     "Type": "AWS::Lambda::Version",
     "Properties":{
-      "FunctionName": {"Ref": "WaitForApprovalTask"},
+      "FunctionName": {"Ref": "ValidateOrderTask"},
       "Description": "v2"
       }
       },
        "newversionv3":{
     "Type": "AWS::Lambda::Version",
     "Properties":{
-      "FunctionName": {"Ref": "WaitForApprovalTask"},
+      "FunctionName": {"Ref": "ValidateOrderTask"},
       "Description": "v3"
       }
       },
