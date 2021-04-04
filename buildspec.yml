@@ -38,4 +38,4 @@ phases:
       - cd ..
       - dir
       - cd AsyncLambda
-      - dotnet lambda deploy-serverless
+      
