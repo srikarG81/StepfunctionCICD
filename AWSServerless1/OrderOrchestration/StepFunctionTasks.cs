@@ -33,16 +33,18 @@ namespace OrderOrchestration
 
         public async Task<Order> WaitForApprovalTask(Order order, ILambdaContext context)
         {
-            AmazonDynamoDBClient client = new AmazonDynamoDBClient();
-            var dbCcontext = new DynamoDBContext(client);
-            List<ScanCondition> conditions = new List<ScanCondition>();
-           
-            conditions.Add(new ScanCondition("OrderID", ScanOperator.Equal, order.OrderID));
-            var allDocs = await dbCcontext.ScanAsync<Order>(conditions).GetRemainingAsync();
-            var savedState = allDocs.FirstOrDefault();
-            savedState.Token = order.Token;
-            //Update tocken in the DB..
-            await dbCcontext.SaveAsync<Order>(savedState);
+            using (AmazonDynamoDBClient client = new AmazonDynamoDBClient())
+            {
+                var dbCcontext = new DynamoDBContext(client);
+                List<ScanCondition> conditions = new List<ScanCondition>();
+
+                conditions.Add(new ScanCondition("OrderID", ScanOperator.Equal, order.OrderID));
+                var allDocs = await dbCcontext.ScanAsync<Order>(conditions).GetRemainingAsync();
+                var savedState = allDocs.FirstOrDefault();
+                savedState.Token = order.Token;
+                //Update tocken in the DB..
+                await dbCcontext.SaveAsync<Order>(savedState);
+            }
             return order;
         }
 
