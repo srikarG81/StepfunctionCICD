@@ -133,7 +133,9 @@
 
      "Order":{
          "Type": "AWS::DynamoDB::Table",
+         
     "Properties": {
+     "TableName" : "Order",
       "AttributeDefinitions":[{ 
          "AttributeName": "OrderID",
           "AttributeType": "S"}, { 
