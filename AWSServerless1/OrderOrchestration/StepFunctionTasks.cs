@@ -34,9 +34,8 @@ namespace OrderOrchestration
 
         public async Task<Order> WaitForApprovalTask(Order order, ILambdaContext context)
         {
-            AWSCredentials aWSCredentials = new Amazon.Runtime.BasicAWSCredentials("AKIA3XEMXBVX4ATJOJ45", "JC6SvII3+Zp4XNadI5S065cFHz8lrlKJP0dBjs0n");
 
-            using (AmazonDynamoDBClient client = new AmazonDynamoDBClient(aWSCredentials))
+            using (AmazonDynamoDBClient client = new AmazonDynamoDBClient())
             {
                 var dbCcontext = new DynamoDBContext(client);
                 List<ScanCondition> conditions = new List<ScanCondition>();
