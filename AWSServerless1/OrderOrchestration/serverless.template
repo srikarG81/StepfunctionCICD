@@ -130,6 +130,30 @@
         }
       }
     },
+
+     "Order":{
+         "Type": "AWS::DynamoDB::Table",
+    "Properties": {
+      "AttributeDefinitions":[{ 
+         "AttributeName": "OrderID",
+          "AttributeType": "S"}, { 
+         "AttributeName": "Cost",
+          "AttributeType": "N"}],
+      "KeySchema":[{ 
+        "AttributeName": "OrderID",
+          "KeyType": "HASH"
+          }, { 
+        "AttributeName": "Cost",
+          "KeyType": "RANGE"
+          }],
+      "ProvisionedThroughput":{ 
+        "ReadCapacityUnits": 5,
+        "WriteCapacityUnits": 5
+        }
+        }
+        },
+
+
     "LambdaRole": {
       "Type": "AWS::IAM::Role",
       "Properties": {
