@@ -6,7 +6,9 @@
       
      "WaitForApprovalTask": {
       "Type": "AWS::Lambda::Function",
+       
       "Properties": {
+       
         "Handler": "OrderOrchestration::OrderOrchestration.StepFunctionTasks::WaitForApprovalTask",
         "Role": {
           "Fn::GetAtt": [
@@ -15,6 +17,7 @@
           ]
         },
         "Runtime": "dotnetcore3.1",
+         
         "MemorySize": 256,
         "Timeout": 30,
         "Code": {
@@ -45,7 +48,10 @@
       "FunctionVersion":{ "Fn::GetAtt": ["newversion","Version"]},
       "Name": "BLUE",
       "RoutingConfig":{
-        "AdditionalVersionWeights":["0.5","0.5"]
+        "AdditionalVersionWeights":[{
+           "FunctionVersion": {"Fn::GetAtt": ["version","Version"]},
+            "FunctionWeight": "0.5"}]
+            
       }
       }
       },
