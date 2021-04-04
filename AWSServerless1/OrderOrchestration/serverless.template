@@ -28,6 +28,13 @@
     "Type": "AWS::Lambda::Version",
     "Properties":{
       "FunctionName": {"Ref": "WaitForApprovalTask"},
+      "Description": "v1"
+      }
+      },
+       "newversion":{
+    "Type": "AWS::Lambda::Version",
+    "Properties":{
+      "FunctionName": {"Ref": "WaitForApprovalTask"},
       "Description": "v2"
       }
       },
