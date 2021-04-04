@@ -42,12 +42,12 @@
     "Type": "AWS::Lambda::Alias",
     "Properties":{
       "FunctionName": {"Ref": "WaitForApprovalTask"},
-      "FunctionVersion":{ "Fn::GetAtt": ["version","Version"]},
+      "FunctionVersion":{ "Fn::GetAtt": ["newversion","Version"]},
       "Name": "BLUE",
       "RoutingConfig":{
         "AdditionalVersionWeights":{
            "FunctionVersion": {"Fn::GetAtt": ["version","Version"]},
-            "FunctionWeight": "0.1"
+            "FunctionWeight": "0.5"
             }
       }
       }
