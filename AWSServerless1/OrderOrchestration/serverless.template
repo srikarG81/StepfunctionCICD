@@ -27,14 +27,14 @@
       }
       },
 
- "version":{
+ "newversion":{
     "Type": "AWS::Lambda::Version",
     "Properties":{
       "FunctionName": {"Ref": "WaitForApprovalTask"},
-      "Description": "v1"
+      "Description": "v2"
       }
       },
-       "newversion":{
+       "newversionv3":{
     "Type": "AWS::Lambda::Version",
     "Properties":{
       "FunctionName": {"Ref": "WaitForApprovalTask"},
@@ -45,11 +45,11 @@
     "Type": "AWS::Lambda::Alias",
     "Properties":{
       "FunctionName": {"Ref": "WaitForApprovalTask"},
-      "FunctionVersion":{ "Fn::GetAtt": ["newversion","Version"]},
+      "FunctionVersion":{ "Fn::GetAtt": ["newversionv3","Version"]},
       "Name": "BLUE",
       "RoutingConfig":{
         "AdditionalVersionWeights":[{
-           "FunctionVersion": {"Fn::GetAtt": ["version","Version"]},
+           "FunctionVersion": {"Fn::GetAtt": ["newversion","Version"]},
             "FunctionWeight": "0.5"}]
             
       }
