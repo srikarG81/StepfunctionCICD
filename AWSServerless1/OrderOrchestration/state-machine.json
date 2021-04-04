@@ -4,7 +4,7 @@
   "States": {
     "Validate Order": {
       "Type": "Task",
-      "Resource": "${ValidateOrderTask.Arn-${opt:alias}}",
+      "Resource": "${ValidateOrderTask.Arn}:BLUE",
       "Next": "Is the order valid?"
     },
 
