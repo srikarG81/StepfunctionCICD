@@ -5,7 +5,9 @@
     "Validate Order": {
       "Type": "Task",
       "Resource": "${ValidateOrderTask.Arn}",
-      "Qualifier": "BLUE",
+      "Parameters": {
+        "Qualifier": "BLUE"
+      },
       "Next": "Is the order valid?"
     },
 
