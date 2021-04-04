@@ -8,6 +8,7 @@ using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DataModel;
 using Amazon.DynamoDBv2.DocumentModel;
 using Amazon.Lambda.Core;
+using Amazon.Runtime;
 
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
@@ -33,6 +34,8 @@ namespace OrderOrchestration
 
         public async Task<Order> WaitForApprovalTask(Order order, ILambdaContext context)
         {
+            AWSCredentials aWSCredentials = new Amazon.Runtime.BasicAWSCredentials("AKIA3XEMXBVX4ATJOJ45", "JC6SvII3+Zp4XNadI5S065cFHz8lrlKJP0dBjs0n");
+
             using (AmazonDynamoDBClient client = new AmazonDynamoDBClient())
             {
                 var dbCcontext = new DynamoDBContext(client);
