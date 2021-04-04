@@ -31,28 +31,17 @@
     "Type": "AWS::Lambda::Version",
     "Properties":{
       "FunctionName": {"Ref": "ValidateOrderTask"},
-      "Description": "v2"
+      "Description": "v1"
       }
       },
-       "newversionv3":{
-    "Type": "AWS::Lambda::Version",
-    "Properties":{
-      "FunctionName": {"Ref": "ValidateOrderTask"},
-      "Description": "v3"
-      }
-      },
+
   "alias":{
     "Type": "AWS::Lambda::Alias",
     "Properties":{
-      "FunctionName": {"Ref": "WaitForApprovalTask"},
-      "FunctionVersion":{ "Fn::GetAtt": ["newversionv3","Version"]},
-      "Name": "BLUE",
-      "RoutingConfig":{
-        "AdditionalVersionWeights":[{
-           "FunctionVersion": {"Fn::GetAtt": ["newversion","Version"]},
-            "FunctionWeight": "0.1"}]
-            
-      }
+      "FunctionName": {"Ref": "ValidateOrderTask"},
+      "FunctionVersion":{ "Fn::GetAtt": ["newversion","Version"]},
+      "Name": "BLUE"
+  
       }
       },
 
