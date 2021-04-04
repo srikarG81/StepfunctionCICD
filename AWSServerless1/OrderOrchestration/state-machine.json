@@ -61,8 +61,8 @@
           "OrderID.$": "$.OrderID",
           "Cost.$": "$.Cost",
           "Token.$": "$$.Task.Token"
-        }
-
+        },
+        "Qualifier": "BLUE"
       },
       "Next": "Is the order approved?"
 

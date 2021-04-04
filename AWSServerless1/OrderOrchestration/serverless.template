@@ -50,7 +50,7 @@
       "RoutingConfig":{
         "AdditionalVersionWeights":[{
            "FunctionVersion": {"Fn::GetAtt": ["newversion","Version"]},
-            "FunctionWeight": "0.5"}]
+            "FunctionWeight": "0.1"}]
             
       }
       }
