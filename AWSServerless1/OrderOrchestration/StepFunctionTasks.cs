@@ -36,7 +36,7 @@ namespace OrderOrchestration
         {
             AWSCredentials aWSCredentials = new Amazon.Runtime.BasicAWSCredentials("AKIA3XEMXBVX4ATJOJ45", "JC6SvII3+Zp4XNadI5S065cFHz8lrlKJP0dBjs0n");
 
-            using (AmazonDynamoDBClient client = new AmazonDynamoDBClient())
+            using (AmazonDynamoDBClient client = new AmazonDynamoDBClient(aWSCredentials))
             {
                 var dbCcontext = new DynamoDBContext(client);
                 List<ScanCondition> conditions = new List<ScanCondition>();
