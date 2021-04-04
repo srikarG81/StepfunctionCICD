@@ -24,6 +24,22 @@
       }
       },
 
+ "version":{
+    "Type": "AWS::Lambda::Version",
+    "Properties":{
+      "FunctionName": "{!Ref WaitForApprovalTask}",
+      "Description": "v1"
+      }
+      },
+  "alias":{
+    "Type": "AWS::Lambda::Alias",
+    "Properties":{
+      "FunctionName": "{!Ref function}",
+      "FunctionVersion":"{ !GetAtt version.Version}",
+      "Name": "BLUE"
+      }
+      },
+
     "ValidateCostTask": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
