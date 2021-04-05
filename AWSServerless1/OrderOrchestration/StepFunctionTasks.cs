@@ -61,6 +61,7 @@ namespace OrderOrchestration
         {
             try
             {
+                throw new Exception("New version v3 test.");
                 var isValid = false;
                 if (order == null)
                     return order;
