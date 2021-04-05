@@ -24,11 +24,12 @@ phases:
       - dotnet restore ./AWSServerless1/StepfunctionAsync.sln
       - dotnet clean  ./AWSServerless1/AsyncLambda.sln
       - dotnet restore ./AWSServerless1/AsyncLambda.sln
+      - cd ./AWSServerless1/OrderProcessor.Test
+      - dotnet test
       
   build:
     commands:
       - echo Build started on `date`
-      - dotnet new -i Amazon.Lambda.Templates::*
       - dotnet tool install -g Amazon.Lambda.Tools
       - dotnet tool update -g Amazon.Lambda.Tools
       - cd AWSServerless1

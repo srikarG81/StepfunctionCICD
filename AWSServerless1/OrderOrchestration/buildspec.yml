@@ -26,7 +26,6 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - dotnet new -i Amazon.Lambda.Templates::*
       - dotnet tool install -g Amazon.Lambda.Tools
       - dotnet tool update -g Amazon.Lambda.Tools
       - dotnet lambda deploy-serverless
