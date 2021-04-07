@@ -32,11 +32,8 @@ phases:
       - echo Build started on `date`
       - dotnet tool install -g Amazon.Lambda.Tools
       - dotnet tool update -g Amazon.Lambda.Tools
-      - cd AWSServerless1
+      - cd ..
       - dir
       - cd OrderOrchestration
       - dotnet lambda deploy-serverless
-      - cd ..
-      - dir
-      - cd AsyncLambda
       
