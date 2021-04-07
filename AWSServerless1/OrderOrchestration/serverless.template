@@ -35,7 +35,13 @@
       }
       },
 
-  
+       "newversionv3":{
+    "Type": "AWS::Lambda::Version",
+    "Properties":{
+      "FunctionName": {"Ref": "ValidateOrderTask"},
+      "Description": "v3"
+      }
+      },
 
 
 
@@ -45,8 +51,13 @@
     "Properties":{
       "FunctionName": {"Ref": "ValidateOrderTask"},
       "FunctionVersion":{ "Fn::GetAtt": ["newversionv2","Version"]},
-      "Name": "BLUE"
-  
+      "Name": "BLUE",
+      "RoutingConfig":{
+        "AdditionalVersionWeights":[{
+           "FunctionVersion": {"Fn::GetAtt": ["newversionv3","Version"]},
+            "FunctionWeight": "0.1"}]
+            
+      }
       }
       },
 
