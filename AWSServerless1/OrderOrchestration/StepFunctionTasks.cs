@@ -71,7 +71,7 @@ namespace OrderOrchestration
 
         public Order ValidateCostTask(Order order, ILambdaContext context)
         {
-            throw new Exception("Error"); /// Exception is thrown to validate V1 & V2 behaviour
+           // throw new Exception("Error"); /// Exception is thrown to validate V1 & V2 behaviour
             order.IsApprovalRequired = order.Cost > 100;
             return order;
         }
