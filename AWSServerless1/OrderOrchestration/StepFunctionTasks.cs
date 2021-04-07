@@ -53,7 +53,6 @@ namespace OrderOrchestration
 
         public Order CallbackCompletedTask(Order order, ILambdaContext context)
         {
-
             return order;
         }
 
